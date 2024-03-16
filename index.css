@@ -31,10 +31,15 @@
 }
 .res-logo{
     width: 100%;
+    height:150px;
 }
 
 .search{
     padding: 10px
+}
+.filter-btn{
+    margin: 3px 3px;
+    cursor: pointer;
 }
 
 .res-card h4{
@@ -45,4 +50,18 @@
     flex-wrap: wrap;
     margin-left: 3rem;
     margin-right: 3rem;
+}
+.shimmer-cont{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shim-card{
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+.Log-in{
+    margin-right: 10px;
+    cursor: pointer;
 }

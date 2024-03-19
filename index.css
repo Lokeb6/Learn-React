@@ -65,3 +65,10 @@
     margin-right: 10px;
     cursor: pointer;
 }
+.Search-btn{
+    cursor: pointer;
+    margin: 3px;
+}
+.res-card h4{
+    color:black
+}

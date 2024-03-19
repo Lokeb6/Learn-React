@@ -1,5 +1,6 @@
 import { CDN_LINK } from "../utilities/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const[btname,setbtname] = useState("Login")
@@ -10,9 +11,15 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to= "/About">About</Link>
+                    </li>
+                    <li>
+                        <Link to = "/Contact">Contact</Link>
+                    </li>
                     <li>Cart</li>
                     <button className="Log-in" onClick={() => {btname === "Login"? setbtname("Logout"): setbtname("Login")}}>{btname}</button>
                 </ul>

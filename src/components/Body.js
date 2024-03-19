@@ -1,7 +1,7 @@
 import Restocard from "./Restocard";
-import resList from "../utilities/mockData";
 import { useEffect, useState } from "react";
 import Shimmmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -30,12 +30,12 @@ const Body = () => {
                     
                 <button className="filter-btn" onClick={() => {
                     const filterList = listOfRestaurants.filter((item) => item.info.avgRating > 4.3 );
-                    setListOfRestaurants(filterList);
+                    setCopyList(filterList);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="res-container">
                 {
-                    copyList.map((restaurant)=>(<Restocard key={restaurant.info.id} resData={restaurant}/>))
+                    copyList.map((restaurant)=>(<Link to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none' }} key={restaurant.info.id}><Restocard  resData={restaurant}/></Link>))
 
                 }           
             </div>

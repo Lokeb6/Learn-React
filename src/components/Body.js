@@ -18,27 +18,27 @@ const Body = () => {
         const json = await data.json();
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setCopyList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(json);
     };
     const onlineStatus = useOnlineStatus();
      if(onlineStatus === false) return <h1>Hey you are offline buddy.....check your connection</h1>
-
     return listOfRestaurants.length === 0? <Shimmmer/>:(
         <div className="body">
-            <div className="filter">
-                <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
-                <button className="Search-btn" onClick={()=> {
+            <div className="p-4 m-4">
+                <input type="text" className=" border border-solid border-black  m-1" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
+                <button className="m-2 bg-pink-100 px-4" onClick={()=> {
                     const filteredRest = listOfRestaurants.filter((res)=>
                     res.info.name.toLowerCase().includes(searchText.toLowerCase())); 
                     setCopyList(filteredRest);
                 }}>Search</button>
                     
-                <button className="filter-btn" onClick={() => {
+                <button className="bg-pink-100 px-4" onClick={() => {
                     const filterList = listOfRestaurants.filter((item) =>
                      item.info.avgRating > 4.3 );
                     setCopyList(filterList);
                 }}>Top Rated Restaurants</button>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                     copyList.map((restaurant)=>
                     (<Link to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none' }} key={restaurant.info.id}>

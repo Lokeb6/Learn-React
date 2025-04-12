@@ -6,9 +6,9 @@ const Restocard = ({resData}) => {
     const{deliveryTime} = resData?.info.sla;
 
     return(
-        <div className="res-card">
-            <img className="res-logo" src={LOGO_LINK+ cloudinaryImageId} />
-            <h4>{name}</h4>
+        <div className="res-card border border-solid border-black w-56 h-auto p-2 m-2 rounded-lg hover:bg-pink-100">
+            <img className="w-56 rounded-lg" src={LOGO_LINK+ cloudinaryImageId} />
+            <h4 className="font-bold">{name}</h4>
             <h4>{cuisines.join(", ")}</h4>
             <h4>{"Rating: "+avgRating}</h4>
             <h4>{costForTwo}</h4>

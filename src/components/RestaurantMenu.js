@@ -13,7 +13,8 @@ const RestaurantMenu = () => {
 
     if (restInfo===null) return <Shimmmer/> 
     const {name, cuisines, costForTwoMessage} = restInfo?.cards[2]?.card?.card?.info;
-    const {itemCards} = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    const menuData = restInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
+    const { itemCards = menuData?.categories?.[0]?.itemCards ?? [] } = menuData;
     console.log(itemCards)
     return (
         <div className="RestaurantInfo">
